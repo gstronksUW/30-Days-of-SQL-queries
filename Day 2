@@ -1,0 +1,17 @@
+
+With CTE1 as (
+Select t1.Hut1 as starting_hut, H1.Name AS Starting_Hut_Name, H1.Altitude AS Starting_Hut_Altitude, t1.h2 as end_hut  FROM Mountain_huts as H1
+JOIN Trails T1 ON MH1.id = Trails.Hut1)
+
+--This is the first join, joining the two tables together and giving Hut1 the name and Altitude
+--In order to join both hut1 and hut2 information, you join this CTE with the following
+
+
+Select T1.*,  FROM CTE1 t2
+join mountain_huts h2 ON h2.id = T1.Hut2;
+
+-- This joins the data for hut 2 to the previous CTE, now you have a table with all information for each hut on the slope
+-- We can get rid of some of the unecessary columns like ID 
+-- The next step is to use a case statement to determine which runs are downhill 
+
+
