@@ -1,0 +1,61 @@
+- String Functions
+
+select 
+	length('skyfall');
+    
+    
+select
+	upper('sky');
+    
+--Substring- returns part of the string by position given and number of characters to return
+Select 
+	left(first_name,4),
+    substring(first_name,3,2)
+from	
+	employee_demographics
+    ;
+    
+--replace - finds a character and replaces it with specified character
+select 
+	first_name,
+    replace(first_name, 'a','z')
+    locate ('An', first_name)
+from
+	employee_demographics
+    ;
+
+
+
+--concatenate - concatenates columns together along with specified characters inside ''
+ select   
+concat(first_name,'-',last_name)
+from
+	employee_demographics;
+    
+    
+Select
+	*
+From
+	employee_demographics
+where
+	employee_id in (
+
+    select 
+		employee_id
+    from
+		employee_salary
+        where dept_id = 1
+    
+    )
+--subquery in select statment
+
+select 
+	first_name,
+    salary,
+   (select  avg(salary) from employee_salary)
+from 
+	employee_salary
+Group by 
+	first_name, salary;
+    
+    
