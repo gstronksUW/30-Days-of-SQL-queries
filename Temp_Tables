@@ -1,0 +1,34 @@
+--Temporary Tables - tables only visible during the session they are created in
+
+--Two ways to create temp table
+
+create temporary table temp_table
+(first_name varchar (50),
+last_name varchar (50),
+favorite_movie varchar (100)
+);
+
+
+
+
+insert into temp_table
+values ('alex','fredberg','Lord of the Rings');
+
+Select *
+from temp_table
+;
+
+
+--Method 2 for creating a temp table:  It will only exist during that session 
+
+
+select
+	*
+from 
+	employee_salary;
+
+create temporary table salary_over_50k
+select * 
+from employee_salary
+where salary=50000;
+	
