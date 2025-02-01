@@ -1,0 +1,59 @@
+--Stored Procedures - 
+
+create procedure large_salaries()
+
+select 
+*
+from
+employee_salary
+where
+salary >=50000;
+
+
+Call large_salaries();
+
+Delimiter $$
+create procedure large_salaries2()
+Begin
+select 
+*
+from
+employee_salary
+where
+salary >=50000;
+select 
+*
+from
+employee_salary
+where
+salary >=10000;
+End $$
+Delimiter ;
+
+
+call large_salaries2()
+
+
+
+--Parameters
+Delimiter $$
+create procedure large_salaries4(employee_id_param INT)
+Begin
+select 
+*
+from
+employee_salary
+where
+employee_id = employee_id_param 
+;
+
+End $$
+Delimiter ;
+
+
+call large_salaries4(1)
+
+
+
+
+
